@@ -1,10 +1,10 @@
 #ifndef _Ray
 #define _Ray
 
-#define ObserverRadius 32
-#define RayCouter 64
-#define RenderDistance 400.0
-#define AngleGap 1.45
+#define ObserverRadius 36
+#define RayCouter 96
+#define RenderDistance 250.0
+#define AngleGap 0.75
 
 class Ray {
 
