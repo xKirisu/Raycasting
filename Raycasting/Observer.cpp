@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "Observer.hpp"
 
+using namespace re;
+
 void Observer::move(Direction set_direction, bool is_key_pressed) {
 	switch (set_direction)
 	{

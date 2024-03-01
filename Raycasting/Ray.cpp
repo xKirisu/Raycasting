@@ -3,6 +3,7 @@
 #include <iostream>
 #define PI 3.14159265
 
+using namespace re;
 
 void Ray::Render(sf::RenderWindow& app, float tickrate, sf::Vector2f observer_position, int observer_rotation, std::vector<sf::RectangleShape> mapBlocks, int angle) {
 	start = observer_position + sf::Vector2f(ObserverRadius, ObserverRadius);

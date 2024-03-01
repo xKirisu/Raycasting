@@ -1,17 +1,21 @@
+#define _WIN32_WINNT 0x0500
 #define WindowSizeX 900
 #define WindowSizeY 900
 
-#define BlockSize 96
+#define BlockSizeRE 96
 #define MapSize 10
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <windows.h>
 #include "Observer.hpp"
 #include "Ray.hpp"
 
-
 int main()
 {
+    HWND hWnd = GetConsoleWindow();
+    ShowWindow(hWnd, SW_HIDE);
+
     sf::RenderWindow window2D(sf::VideoMode(WindowSizeX, WindowSizeY), "RayCasting2D");
     sf::RenderWindow window3D(sf::VideoMode(WindowSizeX, WindowSizeY), "RayCasting3D");
     window2D.setPosition(sf::Vector2i(50, 150));
@@ -20,6 +24,8 @@ int main()
     sf::RectangleShape celling;
     celling.setFillColor(sf::Color(55, 55, 55));
     celling.setSize(sf::Vector2f(WindowSizeX, WindowSizeY / 2));
+
+    using namespace re;
 
     Observer observer(sf::Vector2f(520, 585), sf::Color(0, 0, 128));
     Ray rays[RayCouter];
@@ -45,7 +51,7 @@ int main()
         for (sf::Uint8 x = 0; x < MapSize; x++) {
             
             sf::RectangleShape block;
-            block.setSize(sf::Vector2f(BlockSize, BlockSize));
+            block.setSize(sf::Vector2f(BlockSizeRE, BlockSizeRE));
 
             switch (map[y][x])
             {
@@ -66,7 +72,7 @@ int main()
                 break;
             }
 
-            block.setPosition(x * BlockSize, y * BlockSize);
+            block.setPosition(x * BlockSizeRE, y * BlockSizeRE);
 
             blocks.push_back(block);
         }
